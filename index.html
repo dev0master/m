@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة الذكوات للتعليم الأهلي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --secondary: #0d9488;
+            --accent: #d97706;
+            --bg: #f1f5f9;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --danger: #dc2626;
+            --success: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            color: var(--text);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* الترويسة */
+        .main-header {
+            text-align: center;
+            background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+            color: white;
+            padding: 35px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .main-header h1 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .main-header p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        /* الشبكة والبطاقات */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 28px 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(30, 58, 138, 0.12);
+            border-color: var(--primary-light);
+        }
+
+        .card .icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* قسم الإهداء والأهداف */
+        .goals-section {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            border-top: 5px solid var(--accent);
+            margin-top: 15px;
+        }
+
+        .gift-banner {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-align: center;
+            margin-bottom: 25px;
+            border: 1px dashed #f59e0b;
+        }
+
+        .goals-section h2 {
+            color: var(--primary);
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .goals-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .goals-list li {
+            background: #f8fafc;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border-right: 4px solid var(--secondary);
+            font-weight: 500;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* النماذج ولوحات التحكم */
+        .panel {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .panel-header h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #334155;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary { background: var(--primary); color: white; width: 100%; }
+        .btn-primary:hover { background: #1e40af; }
+        .btn-secondary { background: var(--secondary); color: white; }
+        .btn-secondary:hover { background: #0f766e; }
+        .btn-back { background: #e2e8f0; color: #334155; padding: 8px 16px; font-size: 0.9rem; }
+        .btn-back:hover { background: #cbd5e1; }
+        .btn-yes { background: var(--success); color: white; padding: 6px 14px; font-size: 0.9rem; }
+        .btn-no { background: var(--danger); color: white; padding: 6px 14px; font-size: 0.9rem; }
+
+        /* الجداول وبطاقات العرض */
+        .data-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            text-align: right;
+        }
+
+        .data-item h4 {
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 1.1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .badge-wait { background: #fef3c7; color: #b45309; }
+        .badge-yes { background: #dcfce7; color: #15803d; }
+        .badge-no { background: #fee2e2; color: #b91c1c; }
+
+        .hidden { display: none !important; }
+
+        .alert-msg {
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .alert-success { background: #dcfce7; color: #15803d; }
+        .alert-error { background: #fee2e2; color: #b91c1c; }
+
+        .teacher-info-bar {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- الترويسة الدائمة -->
+    <header class="main-header">
+        <h1>مؤسسة الذكوات للتعليم الأهلي</h1>
+        <p>النظام الإلكتروني المتكامل للإدارة، الكادر التدريسي، الطلبة، وأولياء الأمور</p>
+    </header>
+
+    <!-- ================= 1. الشاشة الرئيسية ================= -->
+    <section id="view-home">
+        <div class="grid-3">
+            <div class="card" onclick="showView('view-parent')">
+                <span class="icon">👨‍👩‍👧‍👦</span>
+                <h3>أنت ولي أمر</h3>
+                <p>متابعة تقييمات الأبناء، الدرجات، الأقساط المالية، التبليغات، والواجبات</p>
+            </div>
+
+            <div class="card" onclick="showView('view-student')">
+                <span class="icon">🎓</span>
+                <h3>أنت طالب</h3>
+                <p>الاطلاع على الواجبات اليومية، التقييمات والدرجات، وتبليغات الإدارة</p>
+            </div>
+
+            <div class="card" onclick="showView('view-staff-pin')">
+                <span class="icon">🏛️</span>
+                <h3>الكادر المدرسي</h3>
+                <p>بوابة الإدارة، الهيئات التدريسية، وقسم الحسابات</p>
+            </div>
+        </div>
+
+        <!-- الإهداء والأهداف -->
+        <div class="goals-section">
+            <div class="gift-banner">
+                🎁 هدية شركة الأنماط إلى مؤسسة الذكوات للتعليم الأهلي 🎁
+            </div>
+            <h2>أهداف المؤسسة التربوية والتعليمية</h2>
+            <ul class="goals-list">
+                <li><span>🎯</span> بناء جيل واعٍ ومثقف يمتلك مهارات التفكير العلمي والإبداعي لمواكبة التطور الحديث.</li>
+                <li><span>🌟</span> توفير بيئة تعليمية نموذجية وآمنة تحفز الطلبة على التفوق والتميز الدراسي.</li>
+                <li><span>🤝</span> تعزيز الشراكة الفاعلة والتواصل المستمر بين الأسرة والمدرسة لمتابعة مستوى الطالب لحظة بلحظة.</li>
+                <li><span>💻</span> توظيف أحدث التقنيات الرقمية في الإدارة والتعليم لتسهيل الوصول للمعلومة بدقة وشفافية.</li>
+                <li><span>🌱</span> غرس القيم الأخلاقية والتربوية الرصينة وتنمية روح المسؤولية والانتماء لدى الطلبة.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= 2. بوابة الكادر المدرسي (الرمز العام) ================= -->
+    <section id="view-staff-pin" class="panel hidden">
+        <div class="panel-header">
+            <h2>بوابة الكادر المدرسي</h2>
+            <button class="btn btn-back" onclick="showView('view-home')">العودة للرئيسية</button>
+        </div>
+        <div style="max-width: 400px; margin: 0 auto;">
+            <div class="form-group">
+                <label>أدخل الرمز السري العام للكادر المدرسي:</label>
+                <input type="password" id="staff-main-pin" placeholder="أدخل الرمز السري (1111)">
+            </div>
+            <button class="btn btn-primary" onclick="verifyStaffMainPin()">دخول</button>
+        </div>
+    </section>
+
+    <!-- اختيار فئة الكادر (مدرس / مؤسس / حسابات) -->
+    <section id="view-staff-roles" class="panel hidden">
+        <div class="panel-header">
+            <h2>اختر القسم الخاص بك</h2>
+            <button class="btn btn-back" onclick="showView('view-home')">تسجيل خروج</button>
+        </div>
+        <div class="grid-3">
+            <div class="card" onclick="openSubPin('teacher')">
+                <span class="icon">👨‍🏫</span>
+                <h3>أنت مدرس</h3>
+                <p>التقييمات، الدرجات، الواجبات، وطلبات الإجازة</p>
+            </div>
+            <div class="card" onclick="openSubPin('founder')">
+                <span class="icon">👔</span>
+                <h3>مؤسس</h3>
+                <p>نشر التبليغات، متابعة الحسابات، والموافقة على الإجازات</p>
+            </div>
+            <div class="card" onclick="openSubPin('accounting')">
+                <span class="icon">💰</span>
+                <h3>قسم الحسابات</h3>
+                <p>تسجيل وإدارة المبالغ المالية المدفوعة للطلبة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الرمز السري الخاص بكل قسم من الكادر -->
+    <section id="view-sub-pin" class="panel hidden">
+        <div class="panel-header">
+            <h2 id="sub-pin-title">التحقق من الصلاحية</h2>
+            <button class="btn btn-back" onclick="showView('view-staff-roles')">رجوع</button>
+        </div>
+        <div style="max-width: 400px; margin: 0 auto;">
+            <div class="form-group">
+                <label id="sub-pin-label">أدخل الرمز السري للقسم:</label>
+                <input type="password" id="sub-pin-input" placeholder="أدخل الرمز السري...">
+            </div>
+            <button class="btn btn-primary" onclick="verifySubPin()">تأكيد الدخول</button>
+        </div>
+    </section>
+
+    <!-- ================= 3. قسم المدرس ================= -->
+    <!-- الخطوة الأولى: إدخال اسم المدرس وتخصصه -->
+    <section id="view-teacher-setup" class="panel hidden">
+        <div class="panel-header">
+            <h2>بيانات المدرس</h2>
+            <button class="btn btn-back" onclick="showView('view-staff-roles')">رجوع</button>
+        </div>
+        <div style="max-width: 450px; margin: 0 auto;">
+            <div class="form-group">
+                <label>اسم المدرس الكامل:</label>
+                <input type="text" id="teacher-name-input" placeholder="مثال: الأستاذ علي محمد">
+            </div>
+            <div class="form-group">
+                <label>التخصص / المادة الدراسية:</label>
+                <input type="text" id="teacher-spec-input" placeholder="مثال: الرياضيات">
+            </div>
+            <button class="btn btn-primary" onclick="saveTeacherProfile()">متابعة إلى لوحة المدرس</button>
+        </div>
+    </section>
+
+    <!-- لوحة المدرس الرئيسية (الأربع خيارات) -->
+    <section id="view-teacher-dashboard" class="panel hidden">
+        <div class="panel-header">
+            <h2>لوحة تحكم المدرس</h2>
+            <button class="btn btn-back" onclick="showView('view-staff-roles')">خروج</button>
+        </div>
+        <div class="teacher-info-bar">
+            <span id="display-teacher-name">المدرس: -</span>
+            <span id="display-teacher-spec">التخصص: -</span>
+        </div>
+
+        <div class="grid-2">
+            <div class="card" onclick="toggleTeacherTab('tab-daily-eval')">
+                <span class="icon">📊</span>
+                <h3>1. تقييم مستوى الطالب اليومي</h3>
+            </div>
+            <div class="card" onclick="toggleTeacherTab('tab-exam-grade')">
+                <span class="icon">📝</span>
+                <h3>2. إدخال درجة امتحانية</h3>
+            </div>
+            <div class="card" onclick="toggleTeacherTab('tab-leave-req')">
+                <span class="icon">📅</span>
+                <h3>3. طلب إجازة</h3>
+            </div>
+            <div class="card" onclick="toggleTeacherTab('tab-homework')">
+                <span class="icon">📚</span>
+                <h3>4. الواجبات</h3>
+            </div>
+        </div>
+
+        <!-- 1. تقييم مستوى الطالب اليومي -->
+        <div id="tab-daily-eval" class="panel teacher-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>تقييم مستوى الطالب اليومي</h3><br>
+            <div class="form-group">
+                <label>اسم الطالب:</label>
+                <input type="text" id="eval-student-name" placeholder="اكتب اسم الطالب الثلاثي">
+            </div>
+            <div class="form-group">
+                <label>الصف الدراسي:</label>
+                <input type="text" id="eval-student-grade" placeholder="مثال: الأول المتوسط">
+            </div>
+            <div class="form-group">
+                <label>التقييم من 10:</label>
+                <input type="number" id="eval-score" min="0" max="10" placeholder="من 0 إلى 10">
+            </div>
+            <div class="form-group">
+                <label>ملاحظات المدرس:</label>
+                <textarea id="eval-notes" rows="3" placeholder="اكتب ملاحظاتك حول مستوى الطالب..."></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="submitDailyEval()">حفظ وإرسال التقييم</button>
+        </div>
+
+        <!-- 2. إدخال درجة امتحانية -->
+        <div id="tab-exam-grade" class="panel teacher-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>إدخال درجة امتحانية</h3><br>
+            <div class="form-group">
+                <label>اسم الطالب:</label>
+                <input type="text" id="exam-student-name" placeholder="اكتب اسم الطالب">
+            </div>
+            <div class="form-group">
+                <label>الدرجة الامتحانية:</label>
+                <input type="number" id="exam-score" placeholder="مثال: 95">
+            </div>
+            <div class="form-group">
+                <label>تأكيد الدرجة / نوع الامتحان:</label>
+                <input type="text" id="exam-score-confirm" placeholder="أعد كتابة الدرجة أو اكتب (شهري / نصف السنة)">
+            </div>
+            <button class="btn btn-primary" onclick="submitExamGrade()">حفظ الدرجة</button>
+        </div>
+
+        <!-- 3. طلب إجازة -->
+        <div id="tab-leave-req" class="panel teacher-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>تقديم طلب إجازة</h3><br>
+            <div class="form-group">
+                <label>اسم المدرس:</label>
+                <input type="text" id="leave-teacher-name">
+            </div>
+            <div class="form-group">
+                <label>عدد أيام الإجازة:</label>
+                <input type="number" id="leave-days" min="1" placeholder="مثال: 2">
+            </div>
+            <div class="form-group">
+                <label>سبب الإجازة:</label>
+                <textarea id="leave-reason" rows="3" placeholder="اذكر سبب طلب الإجازة..."></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="submitLeaveRequest()">إرسال الطلب للمؤسس</button>
+
+            <hr style="margin: 25px 0;">
+            <h4>حالة طلبات الإجازة السابقة (حقل الرد):</h4><br>
+            <div id="teacher-leaves-status"></div>
+        </div>
+
+        <!-- 4. الواجبات -->
+        <div id="tab-homework" class="panel teacher-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>نشر الواجبات أو التبليغ عن امتحان</h3><br>
+            <div class="form-group">
+                <label>الصف الدراسي:</label>
+                <input type="text" id="hw-class" placeholder="مثال: السادس الابتدائي">
+            </div>
+            <div class="form-group">
+                <label>الواجب اليومي أو التبليغ (مثلاً: غداً امتحان شهري):</label>
+                <textarea id="hw-details" rows="4" placeholder="اكتب تفاصيل الواجب أو موعد الامتحان..."></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="submitHomework()">نشر الواجب للطلبة وأولياء الأمور</button>
+        </div>
+    </section>
+
+    <!-- ================= 4. قسم الحسابات ================= -->
+    <section id="view-accounting" class="panel hidden">
+        <div class="panel-header">
+            <h2>قسم الحسابات والمالية</h2>
+            <button class="btn btn-back" onclick="showView('view-staff-roles')">رجوع</button>
+        </div>
+        <div style="max-width: 500px; margin: 0 auto;">
+            <div class="form-group">
+                <label>اسم الطالب:</label>
+                <input type="text" id="acc-student-name" placeholder="اكتب اسم الطالب">
+            </div>
+            <div class="form-group">
+                <label>المبلغ المدفوع (بالدينار العراقي):</label>
+                <input type="number" id="acc-amount" placeholder="مثال: 250000">
+            </div>
+            <button class="btn btn-primary" onclick="submitPayment()">تسجيل المبلغ المدفوع</button>
+        </div>
+        <hr style="margin: 25px 0;">
+        <h3>سجل المبالغ المدخلة:</h3><br>
+        <div id="acc-history-list"></div>
+    </section>
+
+    <!-- ================= 5. قسم المؤسس ================= -->
+    <section id="view-founder" class="panel hidden">
+        <div class="panel-header">
+            <h2>لوحة تحكم المؤسس</h2>
+            <button class="btn btn-back" onclick="showView('view-staff-roles')">رجوع</button>
+        </div>
+
+        <div class="grid-2">
+            <div class="card" onclick="toggleFounderTab('founder-announcements')">
+                <span class="icon">📢</span>
+                <h3>1. التبليغات</h3>
+                <p>نشر تبليغ عام يظهر للطلبة وأولياء الأمور</p>
+            </div>
+            <div class="card" onclick="toggleFounderTab('founder-status')">
+                <span class="icon">🏫</span>
+                <h3>2. أحوال المدرسة</h3>
+                <p>مبالغ الطلاب وإجازات الكادر المدرسي</p>
+            </div>
+        </div>
+
+        <!-- 1. التبليغات -->
+        <div id="founder-announcements" class="panel founder-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>نشر تبليغ جديد للمدرسة</h3><br>
+            <div class="form-group">
+                <label>نص التبليغ (شنو صار أو قرارات المدرسة):</label>
+                <textarea id="founder-msg-input" rows="4" placeholder="اكتب التبليغ هنا ليظهر لجميع الطلبة وأولياء الأمور..."></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="submitAnnouncement()">نشر التبليغ</button>
+        </div>
+
+        <!-- 2. أحوال المدرسة -->
+        <div id="founder-status" class="panel founder-tab hidden" style="border: 1px solid #cbd5e1;">
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <button class="btn btn-secondary" style="flex:1;" onclick="showSchoolSub('sub-payments')">💰 مبالغ الطلاب (من الحسابات)</button>
+                <button class="btn btn-primary" style="flex:1;" onclick="showSchoolSub('sub-leaves')">📋 إجازات الكادر</button>
+            </div>
+
+            <!-- مبالغ الطلاب -->
+            <div id="sub-payments">
+                <h4>سجل المبالغ المدفوعة من قبل الطلاب:</h4><br>
+                <div id="founder-payments-list"></div>
+            </div>
+
+            <!-- إجازات الكادر -->
+            <div id="sub-leaves" class="hidden">
+                <h4>طلبات إجازات الكادر المدرسي:</h4><br>
+                <div id="founder-leaves-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 6. قسم أولياء الأمور ================= -->
+    <section id="view-parent" class="panel hidden">
+        <div class="panel-header">
+            <h2>بوابة أولياء الأمور</h2>
+            <button class="btn btn-back" onclick="showView('view-home')">العودة للرئيسية</button>
+        </div>
+
+        <div class="grid-2">
+            <div class="card" onclick="toggleParentTab('p-evals')">
+                <span class="icon">📈</span>
+                <h3>1. تقييمات الأبناء ودرجاتهم</h3>
+            </div>
+            <div class="card" onclick="toggleParentTab('p-finance')">
+                <span class="icon">💳</span>
+                <h3>2. الإنفاقات المالية</h3>
+            </div>
+            <div class="card" onclick="toggleParentTab('p-news')">
+                <span class="icon">🔔</span>
+                <h3>3. التبليغات</h3>
+            </div>
+            <div class="card" onclick="toggleParentTab('p-hw')">
+                <span class="icon">📖</span>
+                <h3>4. الواجبات</h3>
+            </div>
+        </div>
+
+        <!-- 1. تقييمات الأبناء -->
+        <div id="p-evals" class="panel parent-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>الاستعلام عن تقييمات ودرجات الابن</h3><br>
+            <div class="form-group">
+                <label>اكتب اسم الطالب:</label>
+                <input type="text" id="p-search-eval-name" placeholder="أدخل اسم الطالب كما سجله المدرس...">
+            </div>
+            <button class="btn btn-primary" onclick="searchParentEvals()">عرض التقييمات والدرجات</button>
+            <div id="p-evals-result" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- 2. الإنفاقات المالية -->
+        <div id="p-finance" class="panel parent-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>الاستعلام عن الإنفاقات المالية</h3><br>
+            <div class="form-group">
+                <label>اكتب اسم الطالب:</label>
+                <input type="text" id="p-search-fin-name" placeholder="أدخل اسم الطالب...">
+            </div>
+            <button class="btn btn-primary" onclick="searchParentFinance()">عرض المبالغ المدفوعة</button>
+            <div id="p-finance-result" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- 3. التبليغات -->
+        <div id="p-news" class="panel parent-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>تبليغات إدارة المؤسسة</h3><br>
+            <div id="p-news-list"></div>
+        </div>
+
+        <!-- 4. الواجبات -->
+        <div id="p-hw" class="panel parent-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>الواجبات اليومية والامتحانات</h3><br>
+            <div class="form-group">
+                <label>اكتب الصف الدراسي:</label>
+                <input type="text" id="p-search-hw-class" placeholder="مثال: الأول المتوسط">
+            </div>
+            <button class="btn btn-primary" onclick="searchParentHw()">عرض الواجبات والتقييمات</button>
+            <div id="p-hw-result" style="margin-top: 20px;"></div>
+        </div>
+    </section>
+
+    <!-- ================= 7. قسم الطلاب ================= -->
+    <section id="view-student" class="panel hidden">
+        <div class="panel-header">
+            <h2>بوابة الطلبة</h2>
+            <button class="btn btn-back" onclick="showView('view-home')">العودة للرئيسية</button>
+        </div>
+
+        <div class="grid-3">
+            <div class="card" onclick="toggleStudentTab('s-hw')">
+                <span class="icon">📝</span>
+                <h3>1. الواجبات</h3>
+            </div>
+            <div class="card" onclick="toggleStudentTab('s-evals')">
+                <span class="icon">⭐</span>
+                <h3>2. التقييمات والدرجات</h3>
+            </div>
+            <div class="card" onclick="toggleStudentTab('s-news')">
+                <span class="icon">📢</span>
+                <h3>3. التبليغات</h3>
+            </div>
+        </div>
+
+        <!-- 1. واجبات الطالب -->
+        <div id="s-hw" class="panel student-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>واجباتي اليومية والامتحانات</h3><br>
+            <div class="form-group">
+                <label>اكتب صفك الدراسي:</label>
+                <input type="text" id="s-search-hw-class" placeholder="مثال: السادس الابتدائي">
+            </div>
+            <button class="btn btn-primary" onclick="searchStudentHw()">عرض الواجبات</button>
+            <div id="s-hw-result" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- 2. تقييمات الطالب -->
+        <div id="s-evals" class="panel student-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>تقييماتي اليومية ودرجاتي</h3><br>
+            <div class="form-group">
+                <label>اكتب اسمك الكامل:</label>
+                <input type="text" id="s-search-eval-name" placeholder="أدخل اسمك...">
+            </div>
+            <button class="btn btn-primary" onclick="searchStudentEvals()">عرض التقييمات</button>
+            <div id="s-evals-result" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- 3. تبليغات المدير -->
+        <div id="s-news" class="panel student-tab hidden" style="border: 1px solid #cbd5e1;">
+            <h3>تبليغات الإدارة والمؤسس</h3><br>
+            <div id="s-news-list"></div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // ================= الرموز السرية =================
+    const PINS = {
+        staffMain: '1111',
+        teacher: '2222',
+        accounting: '3333',
+        founder: '4444'
+    };
+
+    let currentSubRole = '';
+    let currentTeacher = { name: '', spec: '' };
+
+    // ================= إدارة قاعدة البيانات المحلية =================
+    function getDB(key) {
+        return JSON.parse(localStorage.getItem('dhakawat_' + key)) || [];
+    }
+
+    function saveDB(key, data) {
+        localStorage.setItem('dhakawat_' + key, JSON.stringify(data));
+    }
+
+    // ================= التنقل بين الواجهات =================
+    function showView(viewId) {
+        document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden'));
+        document.getElementById(viewId).classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ================= التحقق من الرموز السرية للكادر =================
+    function verifyStaffMainPin() {
+        const pin = document.getElementById('staff-main-pin').value.trim();
+        if (pin === PINS.staffMain) {
+            document.getElementById('staff-main-pin').value = '';
+            showView('view-staff-roles');
+        } else {
+            alert('❌ الرمز السري غير صحيح! (الرمز الافتراضي هو 1111)');
+        }
+    }
+
+    function openSubPin(role) {
+        currentSubRole = role;
+        const title = document.getElementById('sub-pin-title');
+        const label = document.getElementById('sub-pin-label');
+        document.getElementById('sub-pin-input').value = '';
+
+        if (role === 'teacher') {
+            title.innerText = 'دخول المدرس';
+            label.innerText = 'أدخل الرمز السري للمدرس (2222):';
+        } else if (role === 'accounting') {
+            title.innerText = 'دخول قسم الحسابات';
+            label.innerText = 'أدخل الرمز السري لقسم الحسابات (3333):';
+        } else if (role === 'founder') {
+            title.innerText = 'دخول المؤسس';
+            label.innerText = 'أدخل الرمز السري للمؤسس (4444):';
+        }
+        showView('view-sub-pin');
+    }
+
+    function verifySubPin() {
+        const pin = document.getElementById('sub-pin-input').value.trim();
+        if (currentSubRole === 'teacher' && pin === PINS.teacher) {
+            showView('view-teacher-setup');
+        } else if (currentSubRole === 'accounting' && pin === PINS.accounting) {
+            renderAccountingHistory();
+            showView('view-accounting');
+        } else if (currentSubRole === 'founder' && pin === PINS.founder) {
+            showView('view-founder');
+        } else {
+            alert('❌ الرمز السري غير صحيح!');
+        }
+    }
+
+    // ================= منطق قسم المدرس =================
+    function saveTeacherProfile() {
+        const name = document.getElementById('teacher-name-input').value.trim();
+        const spec = document.getElementById('teacher-spec-input').value.trim();
+        if (!name || !spec) {
+            alert('يرجى إدخال الاسم والتخصص أولاً.');
+            return;
+        }
+        currentTeacher = { name, spec };
+        document.getElementById('display-teacher-name').innerText = 'المدرس: ' + name;
+        document.getElementById('display-teacher-spec').innerText = 'التخصص: ' + spec;
+        document.getElementById('leave-teacher-name').value = name;
+        showView('view-teacher-dashboard');
+    }
+
+    function toggleTeacherTab(tabId) {
+        document.querySelectorAll('.teacher-tab').forEach(t => t.classList.add('hidden'));
+        document.getElementById(tabId).classList.remove('hidden');
+        if (tabId === 'tab-leave-req') renderTeacherLeaves();
+    }
+
+    function submitDailyEval() {
+        const studentName = document.getElementById('eval-student-name').value.trim();
+        const grade = document.getElementById('eval-student-grade').value.trim();
+        const score = document.getElementById('eval-score').value.trim();
+        const notes = document.getElementById('eval-notes').value.trim();
+
+        if (!studentName || !grade || !score) {
+            alert('يرجى ملء اسم الطالب والصف والتقييم.');
+            return;
+        }
+
+        const evals = getDB('evals');
+        evals.unshift({
+            type: 'تقييم يومي',
+            studentName,
+            grade,
+            score: score + ' / 10',
+            notes: notes || 'لا توجد ملاحظات',
+            teacher: currentTeacher.name,
+            subject: currentTeacher.spec,
+            date: new Date().toLocaleDateString('ar-IQ')
+        });
+        saveDB('evals', evals);
+
+        alert('✅ تم حفظ التقييم اليومي للطالب بنجاح!');
+        document.getElementById('eval-student-name').value = '';
+        document.getElementById('eval-score').value = '';
+        document.getElementById('eval-notes').value = '';
+    }
+
+    function submitExamGrade() {
+        const studentName = document.getElementById('exam-student-name').value.trim();
+        const score = document.getElementById('exam-score').value.trim();
+        const confirmInfo = document.getElementById('exam-score-confirm').value.trim();
+
+        if (!studentName || !score) {
+            alert('يرجى إدخال اسم الطالب والدرجة.');
+            return;
+        }
+
+        const evals = getDB('evals');
+        evals.unshift({
+            type: 'درجة امتحانية',
+            studentName,
+            grade: '-',
+            score: score,
+            notes: confirmInfo || 'درجة امتحان',
+            teacher: currentTeacher.name,
+            subject: currentTeacher.spec,
+            date: new Date().toLocaleDateString('ar-IQ')
+        });
+        saveDB('evals', evals);
+
+        alert('✅ تم إدخال الدرجة الامتحانية بنجاح!');
+        document.getElementById('exam-student-name').value = '';
+        document.getElementById('exam-score').value = '';
+        document.getElementById('exam-score-confirm').value = '';
+    }
+
+    function submitLeaveRequest() {
+        const name = document.getElementById('leave-teacher-name').value.trim();
+        const days = document.getElementById('leave-days').value.trim();
+        const reason = document.getElementById('leave-reason').value.trim();
+
+        if (!name || !days || !reason) {
+            alert('يرجى ملء جميع حقول طلب الإجازة.');
+            return;
+        }
+
+        const leaves = getDB('leaves');
+        leaves.unshift({
+            id: Date.now(),
+            teacherName: name,
+            spec: currentTeacher.spec,
+            days,
+            reason,
+            status: 'انتظر الرد',
+            date: new Date().toLocaleDateString('ar-IQ')
+        });
+        saveDB('leaves', leaves);
+
+        alert('✅ تم إرسال طلب الإجازة إلى المؤسس (انتظر الرد).');
+        document.getElementById('leave-days').value = '';
+        document.getElementById('leave-reason').value = '';
+        renderTeacherLeaves();
+    }
+
+    function renderTeacherLeaves() {
+        const leaves = getDB('leaves');
+        const container = document.getElementById('teacher-leaves-status');
+        const myLeaves = leaves.filter(l => l.teacherName.includes(currentTeacher.name));
+
+        if (myLeaves.length === 0) {
+            container.innerHTML = '<p style="color:#64748b;">لا توجد طلبات إجازة مقدمة حالياً.</p>';
+            return;
+        }
+
+        container.innerHTML = myLeaves.map(l => {
+            let badgeClass = 'badge-wait';
+            if (l.status === 'نعم (تمت الموافقة)') badgeClass = 'badge-yes';
+            if (l.status === 'لا (تم الرفض)') badgeClass = 'badge-no';
+
+            return `
+                <div class="data-item">
+                    <h4>طلب إجازة لمدة (${l.days}) يوم - بتاريخ ${l.date}</h4>
+                    <p><strong>السبب:</strong> ${l.reason}</p>
+                    <p style="margin-top:8px;"><strong>حالة الطلب:</strong> <span class="badge ${badgeClass}">${l.status}</span></p>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function submitHomework() {
+        const hwClass = document.getElementById('hw-class').value.trim();
+        const details = document.getElementById('hw-details').value.trim();
+
+        if (!hwClass || !details) {
+            alert('يرجى كتابة الصف وتفاصيل الواجب.');
+            return;
+        }
+
+        const homeworks = getDB('homeworks');
+        homeworks.unshift({
+            hwClass,
+            details,
+            teacher: currentTeacher.name,
+            subject: currentTeacher.spec,
+            date: new Date().toLocaleDateString('ar-IQ')
+        });
+        saveDB('homeworks', homeworks);
+
+        alert('✅ تم نشر الواجب للصف بنجاح!');
+        document.getElementById('hw-details').value = '';
+    }
+
+    // ================= منطق قسم الحسابات =================
+    function submitPayment() {
+        const studentName = document.getElementById('acc-student-name').value.trim();
+        const amount = document.getElementById('acc-amount').value.trim();
+
+        if (!studentName || !amount) {
+            alert('يرجى إدخال اسم الطالب والمبلغ المدفوع.');
+            return;
+        }
+
+        const payments = getDB('payments');
+        payments.unshift({
+            studentName,
+            amount: Number(amount).toLocaleString(),
+            date: new Date().toLocaleDateString('ar-IQ')
+        });
+        saveDB('payments', payments);
+
+        alert('✅ تم تسجيل المبلغ المدفوع في النظام!');
+        document.getElementById('acc-student-name').value = '';
+        document.getElementById('acc-amount').value = '';
+        renderAccountingHistory();
+    }
+
+    function renderAccountingHistory() {
+        const payments = getDB('payments');
+        const container = document.getElementById('acc-history-list');
+        if (payments.length === 0) {
+            container.innerHTML = '<p style="color:#64748b;">لا توجد مبالغ مسجلة بعد.</p>';
+            return;
+        }
+        container.innerHTML = payments.map(p => `
+            <div class="data-item">
+                <h4>الطالب: ${p.studentName}</h4>
+                <p><strong>المبلغ المدفوع:</strong> ${p.amount} دينار عراقي | <strong>التاريخ:</strong> ${p.date}</p>
+            </div>
+        `).join('');
+    }
+
+    // ================= منطق قسم المؤسس =================
+    function toggleFounderTab(tabId) {
+        document.querySelectorAll('.founder-tab').forEach(t => t.classList.add('hidden'));
+        document.getElementById(tabId).classList.remove('hidden');
+        if (tabId === 'founder-status') {
+            renderFounderPayments();
+            renderFounderLeaves();
+        }
+    }
+
+    function showSchoolSub(subId) {
+        document.getElementById('sub-payments').classList.add('hidden');
+        document.getElementById('sub-leaves').classList.add('hidden');
+        document.getElementById(subId).classList.remove('hidden');
+    }
+
+    function submitAnnouncement() {
+        const msg = document.getElementById('founder-msg-input').value.trim();
+        if (!msg) {
+            alert('يرجى كتابة نص التبليغ.');
+            return;
+        }
+
+        const announcements = getDB('announcements');
+        announcements.unshift({
+            msg,
+            date: new Date().toLocaleDateString('ar-IQ')
+        });
+        saveDB('announcements', announcements);
+
+        alert('✅ تم نشر التبليغ بنجاح ليظهر لأولياء الأمور والطلبة!');
+        document.getElementById('founder-msg-input').value = '';
+    }
+
+    function renderFounderPayments() {
+        const payments = getDB('payments');
+        const container = document.getElementById('founder-payments-list');
+        if (payments.length === 0) {
+            container.innerHTML = '<p style="color:#64748b;">لم يقم قسم الحسابات بإدخال أي مبالغ بعد.</p>';
+            return;
+        }
+        container.innerHTML = payments.map(p => `
+            <div class="data-item">
+                <h4>الطالب: ${p.studentName}</h4>
+                <p><strong>المبلغ المدفوع:</strong> ${p.amount} دينار عراقي — بتاريخ ${p.date}</p>
+            </div>
+        `).join('');
+    }
+
+    function renderFounderLeaves() {
+        const leaves = getDB('leaves');
+        const container = document.getElementById('founder-leaves-list');
+        if (leaves.length === 0) {
+            container.innerHTML = '<p style="color:#64748b;">لا توجد طلبات إجازة من الكادر حالياً.</p>';
+            return;
+        }
+        container.innerHTML = leaves.map(l => `
+            <div class="data-item">
+                <h4>المدرس: ${l.teacherName} (${l.spec})</h4>
+                <p><strong>مدة الإجازة:</strong> ${l.days} يوم | <strong>السبب:</strong> ${l.reason}</p>
+                <p style="margin: 8px 0;"><strong>الحالة الحالية:</strong> ${l.status}</p>
+                <div style="display:flex; gap:10px; margin-top:10px;">
+                    <button class="btn btn-yes" onclick="respondLeave(${l.id}, 'نعم (تمت الموافقة)')">نعم (موافقة)</button>
+                    <button class="btn btn-no" onclick="respondLeave(${l.id}, 'لا (تم الرفض)')">لا (رفض)</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function respondLeave(id, decision) {
+        const leaves = getDB('leaves');
+        const index = leaves.findIndex(l => l.id === id);
+        if (index !== -1) {
+            leaves[index].status = decision;
+            saveDB('leaves', leaves);
+            renderFounderLeaves();
+            alert('تم إرسال ردك (' + decision + ') إلى صفحة المدرس بنجاح.');
+        }
+    }
+
+    // ================= منطق قسم أولياء الأمور =================
+    function toggleParentTab(tabId) {
+        document.querySelectorAll('.parent-tab').forEach(t => t.classList.add('hidden'));
+        document.getElementById(tabId).classList.remove('hidden');
+        if (tabId === 'p-news') renderAnnouncements('p-news-list');
+    }
+
+    function searchParentEvals() {
+        const query = document.getElementById('p-search-eval-name').value.trim();
+        const container = document.getElementById('p-evals-result');
+        if (!query) { alert('يرجى كتابة اسم الطالب'); return; }
+
+        const evals = getDB('evals').filter(e => e.studentName.includes(query));
+        if (evals.length === 0) {
+            container.innerHTML = '<p style="color:#dc2626;">لا توجد تقييمات أو درجات مسجلة بهذا الاسم حالياً.</p>';
+            return;
+        }
+        container.innerHTML = evals.map(e => `
+            <div class="data-item">
+                <h4>${e.type} - الطالب: ${e.studentName}</h4>
+                <p><strong>المادة:</strong> ${e.subject} (الأستاذ: ${e.teacher})</p>
+                <p><strong>الدرجة / التقييم:</strong> <span class="badge badge-yes">${e.score}</span></p>
+                <p><strong>الملاحظات:</strong> ${e.notes} | <strong>التاريخ:</strong> ${e.date}</p>
+            </div>
+        `).join('');
+    }
+
+    function searchParentFinance() {
+        const query = document.getElementById('p-search-fin-name').value.trim();
+        const container = document.getElementById('p-finance-result');
+        if (!query) { alert('يرجى كتابة اسم الطالب'); return; }
+
+        const payments = getDB('payments').filter(p => p.studentName.includes(query));
+        if (payments.length === 0) {
+            container.innerHTML = '<p style="color:#dc2626;">لا توجد مدفوعات مسجلة في الحسابات لهذا الاسم.</p>';
+            return;
+        }
+        container.innerHTML = payments.map(p => `
+            <div class="data-item">
+                <h4>الطالب: ${p.studentName}</h4>
+                <p><strong>المبلغ المدفوع:</strong> <span class="badge badge-yes">${p.amount} دينار عراقي</span></p>
+                <p><strong>تاريخ التسديد:</strong> ${p.date}</p>
+            </div>
+        `).join('');
+    }
+
+    function searchParentHw() {
+        const query = document.getElementById('p-search-hw-class').value.trim();
+        const container = document.getElementById('p-hw-result');
+        if (!query) { alert('يرجى كتابة الصف الدراسي'); return; }
+
+        const hws = getDB('homeworks').filter(h => h.hwClass.includes(query));
+        const classEvals = getDB('evals').filter(e => e.grade.includes(query));
+
+        let html = '';
+        if (hws.length > 0) {
+            html += '<h4>الواجبات والامتحانات للصف:</h4><br>' + hws.map(h => `
+                <div class="data-item">
+                    <h4>الصف: ${h.hwClass} — مادة ${h.subject}</h4>
+                    <p>${h.details}</p>
+                    <small style="color:#64748b;">الأستاذ: ${h.teacher} | التاريخ: ${h.date}</small>
+                </div>
+            `).join('');
+        }
+        if (classEvals.length > 0) {
+            html += '<br><h4>تقييمات طلبة هذا الصف:</h4><br>' + classEvals.map(e => `
+                <div class="data-item">
+                    <h4>الطالب: ${e.studentName} (${e.grade})</h4>
+                    <p><strong>التقييم:</strong> ${e.score} | <strong>ملاحظات:</strong> ${e.notes}</p>
+                </div>
+            `).join('');
+        }
+        if (!html) {
+            html = '<p style="color:#dc2626;">لا توجد واجبات أو تقييمات مسجلة لهذا الصف حالياً.</p>';
+        }
+        container.innerHTML = html;
+    }
+
+    // ================= منطق قسم الطلاب =================
+    function toggleStudentTab(tabId) {
+        document.querySelectorAll('.student-tab').forEach(t => t.classList.add('hidden'));
+        document.getElementById(tabId).classList.remove('hidden');
+        if (tabId === 's-news') renderAnnouncements('s-news-list');
+    }
+
+    function searchStudentHw() {
+        const query = document.getElementById('s-search-hw-class').value.trim();
+        const container = document.getElementById('s-hw-result');
+        if (!query) { alert('يرجى كتابة صفك الدراسي'); return; }
+
+        const hws = getDB('homeworks').filter(h => h.hwClass.includes(query));
+        if (hws.length === 0) {
+            container.innerHTML = '<p style="color:#dc2626;">لا توجد واجبات منشورة لصفك حالياً.</p>';
+            return;
+        }
+        container.innerHTML = hws.map(h => `
+            <div class="data-item">
+                <h4>مادة: ${h.subject} (الصف: ${h.hwClass})</h4>
+                <p style="font-size:1.05rem; margin:6px 0;">${h.details}</p>
+                <small style="color:#64748b;">الأستاذ: ${h.teacher} | التاريخ: ${h.date}</small>
+            </div>
+        `).join('');
+    }
+
+    function searchStudentEvals() {
+        const query = document.getElementById('s-search-eval-name').value.trim();
+        const container = document.getElementById('s-evals-result');
+        if (!query) { alert('يرجى كتابة اسمك'); return; }
+
+        const evals = getDB('evals').filter(e => e.studentName.includes(query));
+        if (evals.length === 0) {
+            container.innerHTML = '<p style="color:#dc2626;">لا توجد تقييمات أو درجات مسجلة باسمك حالياً.</p>';
+            return;
+        }
+        container.innerHTML = evals.map(e => `
+            <div class="data-item">
+                <h4>${e.type} - مادة ${e.subject}</h4>
+                <p><strong>النتيجة:</strong> <span class="badge badge-yes">${e.score}</span></p>
+                <p><strong>ملاحظات المدرس:</strong> ${e.notes} | <strong>التاريخ:</strong> ${e.date}</p>
+            </div>
+        `).join('');
+    }
+
+    // ================= عرض التبليغات المشتركة =================
+    function renderAnnouncements(containerId) {
+        const list = getDB('announcements');
+        const container = document.getElementById(containerId);
+        if (list.length === 0) {
+            container.innerHTML = '<p style="color:#64748b;">لا توجد تبليغات منشورة من الإدارة حالياً.</p>';
+            return;
+        }
+        container.innerHTML = list.map(a => `
+            <div class="data-item" style="border-right: 4px solid #d97706;">
+                <h4>📢 تبليغ إداري — بتاريخ ${a.date}</h4>
+                <p style="font-size:1.1rem; margin-top:6px;">${a.msg}</p>
+            </div>
+        `).join('');
+    }
+</script>
+
+</body>
+</html>
